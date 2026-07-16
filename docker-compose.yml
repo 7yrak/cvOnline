@@ -1,0 +1,20 @@
+name: cv-online
+
+services:
+  cv-online:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cv-online
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      NEXT_TELEMETRY_DISABLED: "1"
+    ports:
+      - "${CV_ONLINE_PORT:-3080}:3000"
+    networks:
+      - cv-online-network
+
+networks:
+  cv-online-network:
+    driver: bridge
