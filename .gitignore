@@ -10,6 +10,8 @@
 # production and reports
 /build/
 /coverage/
+/dist-package/
+/*.zip
 
 # local configuration
 .env*

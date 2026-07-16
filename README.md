@@ -2,6 +2,8 @@
 
 Portafolio profesional de Sergio Fica Troncoso, Líder Técnico / Tech Lead. La aplicación está construida con Next.js y preparada para ejecutarse en Linux mediante Docker Compose.
 
+La versión también incluye un pipeline Jenkins que genera un artefacto standalone, lo copia al host y despliega la aplicación como servicio `systemd`.
+
 ## Requisitos
 
 - Git
@@ -52,6 +54,45 @@ Detener:
 ```bash
 docker compose down
 ```
+
+## Despliegue mediante Jenkins
+
+El `Jenkinsfile` replica el flujo utilizado por los demás sistemas:
+
+1. Limpia el workspace.
+2. Clona `git@github.com:7yrak/cvOnline.git`.
+3. Verifica Node.js, npm y zip.
+4. Ejecuta `npm ci`, lint y build.
+5. Empaqueta el resultado standalone en `cv-online-build.zip`.
+6. Archiva el ZIP en Jenkins.
+7. Copia el artefacto a `/home/tyrak/proyectos/cv-online/`.
+8. Ejecuta el despliegue en el host mediante SSH.
+
+Preparación inicial del host Linux:
+
+```bash
+sudo apt-get update
+sudo apt-get install -y unzip
+
+sudo mkdir -p /home/tyrak/proyectos/cv-online
+sudo chown -R tyrak:tyrak /home/tyrak/proyectos/cv-online
+
+sudo cp deploy/deploy-cv-online-from-jenkins.sh /usr/local/sbin/
+sudo chmod 750 /usr/local/sbin/deploy-cv-online-from-jenkins.sh
+sudo chown root:root /usr/local/sbin/deploy-cv-online-from-jenkins.sh
+
+sudo cp deploy/cv-online.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable cv-online.service
+```
+
+El usuario utilizado por Jenkins debe poder ejecutar únicamente el script de despliegue sin contraseña. Configuración sugerida con `sudo visudo -f /etc/sudoers.d/jenkins-cv-online`:
+
+```text
+tyrak ALL=(root) NOPASSWD: /usr/local/sbin/deploy-cv-online-from-jenkins.sh
+```
+
+Si Jenkins ejecuta dentro de un contenedor, la ruta `/home/tyrak/proyectos` debe estar montada desde el host, tal como en los demás pipelines.
 
 ## Actualizar una versión
 
