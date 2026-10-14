@@ -1,23 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { headers } from "next/headers";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#06121f",
-  colorScheme: "dark",
+  themeColor: "#f7f6f2",
+  colorScheme: "light",
 };
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -51,13 +40,11 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: "Sergio Fica · Líder Técnico",
       title: "Sergio Fica | Líder Técnico · Tech Lead",
       description: "Conecto arquitectura, equipos y producción para convertir complejidad técnica en entregas confiables.",
-      images: [{ url: `${baseUrl}/og.png`, width: 1536, height: 1024, alt: "Sergio Fica, Líder Técnico y Tech Lead" }],
     },
     twitter: {
-      card: "summary_large_image",
+      card: "summary",
       title: "Sergio Fica | Líder Técnico · Tech Lead",
       description: "Arquitectura · Equipos · Integraciones · Producción",
-      images: [`${baseUrl}/og.png`],
     },
   };
 }
@@ -65,7 +52,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

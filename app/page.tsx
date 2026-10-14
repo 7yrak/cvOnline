@@ -1,8 +1,8 @@
 const leadershipAreas = [
   {
     index: "01",
-    title: "Arquitectura",
-    description: "Definición y validación de soluciones, criterios de integración y decisiones de implementación.",
+    title: "Apoyo a arquitectura",
+    description: "Colaboración con Arquitectura en la definición y validación de soluciones y criterios de integración.",
   },
   {
     index: "02",
@@ -50,7 +50,7 @@ const experience = [
     stack: "Java 8 · Spring Boot · Spring Batch · Kafka · Oracle · DataStage · Maven · REST / SOAP",
   },
   {
-    period: "2017 — 2019",
+    period: "ABR 2017 — FEB 2019",
     role: "Analista Desarrollador",
     company: "ZEKE · UTFSM",
     summary:
@@ -59,7 +59,7 @@ const experience = [
     stack: "Java 8 · Spring MVC · PrimeFaces · PostgreSQL · Angular",
   },
   {
-    period: "2016 — 2017",
+    period: "MAR 2016 — MAR 2017",
     role: "Desarrollador",
     company: "ZEKE · Ministerio de Educación",
     summary:
@@ -68,13 +68,20 @@ const experience = [
     stack: "Java 8 · Spring MVC · PrimeFaces · PostgreSQL",
   },
   {
-    period: "2013 — 2016",
-    role: "Ingeniero de Software / Desarrollador",
-    company: "Eddvantage · Universidad de Chile",
-    summary:
-      "Desarrollo, despliegue y soporte de plataformas operativas, servicios académicos y soluciones alojadas en AWS.",
+    period: "MAY 2014 — MAR 2016",
+    role: "Ingeniero de Software",
+    company: "Eddvantage",
+    summary: "Desarrollo, puesta en marcha y mantenimiento de las plataformas Logistics y Engage Me. Configuración y mantenimiento de servidores en AWS.",
     points: [],
-    stack: "Java · Spring MVC · JSF · PostgreSQL · Oracle · AWS",
+    stack: "Java 8 · Spring MVC · PrimeFaces · PostgreSQL · AWS",
+  },
+  {
+    period: "MAR 2013 — FEB 2014",
+    role: "Desarrollador de Software",
+    company: "Universidad de Chile",
+    summary: "Desarrollo y mantenimiento de Catálogo de Asignaturas, Portafolio de Alumnos y Asignación Académica, con soporte posterior a producción.",
+    points: [],
+    stack: "Java · Spring MVC · JSF · Oracle",
   },
 ];
 
@@ -102,6 +109,7 @@ const clients = ["Santander", "BICE", "Entel", "Consumer", "Banbif", "JP Morgan"
 export default function Home() {
   return (
     <main>
+      <a className="skip-link" href="#perfil">Saltar al contenido</a>
       <header className="site-header">
         <a className="brand" href="#inicio" aria-label="Sergio Fica, volver al inicio">
           <span className="brand-mark" aria-hidden="true">SF</span>
@@ -113,62 +121,51 @@ export default function Home() {
         <nav className="main-nav" aria-label="Navegación principal">
           <a href="#perfil">Perfil</a>
           <a href="#experiencia">Experiencia</a>
-          <a href="#stack">Stack</a>
+          <a href="#stack">Tecnologías</a>
           <a href="#contacto">Contacto</a>
         </nav>
         <a className="header-cta" href="mailto:sergiofica@gmail.com">Conversemos <span aria-hidden="true">↗</span></a>
       </header>
 
       <section className="hero" id="inicio">
-        <div className="hero-grid" aria-hidden="true" />
-        <div className="hero-glow hero-glow-one" aria-hidden="true" />
-        <div className="hero-glow hero-glow-two" aria-hidden="true" />
         <div className="hero-copy">
-          <div className="availability"><span aria-hidden="true" /> Disponible para desafíos de liderazgo técnico</div>
-          <p className="eyebrow">Líder Técnico · Tech Lead</p>
-          <h1>Conecto arquitectura, <em>equipos</em> y producción.</h1>
+          <p className="eyebrow">Ingeniero informático · Líder técnico</p>
+          <h1>Sergio Fica<span>Troncoso.</span></h1>
+          <p className="hero-role">Tech Lead <span aria-hidden="true">/</span> Integración & delivery</p>
           <p className="hero-lead">
-            Más de 13 años construyendo software para banca, medios de pago y servicios críticos. Convierto complejidad técnica en decisiones claras, entregas confiables y equipos que avanzan.
+            Más de 13 años de experiencia en software, banca y medios de pago. Liderazgo de equipos y coordinación técnica para llevar soluciones desde su definición hasta producción.
           </p>
           <div className="hero-actions">
-            <a className="button button-primary" href="mailto:sergiofica@gmail.com">Conversemos <span aria-hidden="true">↗</span></a>
-            <a className="button button-secondary" href="#experiencia">Ver trayectoria <span aria-hidden="true">↓</span></a>
+            <a className="button button-primary" href="/sergio-fica-cv-2026.pdf" download>Descargar CV en PDF <span aria-hidden="true">↓</span></a>
+            <a className="button button-secondary" href="#experiencia">Ver experiencia <span aria-hidden="true">↗</span></a>
           </div>
         </div>
-
-        <aside className="leadership-system" aria-label="Sistema de liderazgo técnico">
-          <div className="system-head">
-            <span>Sistema de liderazgo</span>
-            <span className="online"><i aria-hidden="true" /> En operación</span>
-          </div>
-          <div className="system-title">
-            <p>Visión integral.</p>
-            <strong>Ejecución precisa.</strong>
-          </div>
-          <div className="system-grid">
-            {leadershipAreas.map((area) => (
-              <article key={area.title}>
-                <span>{area.index} · {area.index === "01" ? "DISEÑO" : area.index === "02" ? "FLUJO" : area.index === "03" ? "ECOSISTEMA" : "CONTINUIDAD"}</span>
-                <h2>{area.title}</h2>
-              </article>
-            ))}
-          </div>
-          <p className="system-note"><span aria-hidden="true" /> Del diseño a la operación, sin perder contexto.</p>
+        <aside className="professional-card" aria-label="Información profesional">
+          <span className="card-label">Perfil profesional</span>
+          <div className="card-monogram" aria-hidden="true">SF<span>.</span></div>
+          <h2>Liderazgo técnico.<br />Visión integral.</h2>
+          <p>Arquitectura, equipos e integración de sistemas en entornos de alta criticidad.</p>
+          <dl>
+            <div><dt>Actualmente</dt><dd>Líder Técnico en Evertec</dd></div>
+            <div><dt>Ubicación</dt><dd>Curauma, Valparaíso · Chile</dd></div>
+            <div><dt>Especialidad</dt><dd>Banca & medios de pago</dd></div>
+          </dl>
+          <a href="https://www.linkedin.com/in/sergiofica" target="_blank" rel="noreferrer">Ver perfil en LinkedIn <span aria-hidden="true">↗</span></a>
         </aside>
       </section>
 
       <section className="metrics" aria-label="Cifras profesionales destacadas">
         <div><strong>13+</strong><span>Años de experiencia</span></div>
-        <div><strong>10</strong><span>Personas por equipo</span></div>
-        <div><strong>3</strong><span>Ambientes: DEV · UAT · PROD</span></div>
-        <div><strong>360°</strong><span>Del diseño a producción</span></div>
+        <div><strong>Hasta 10</strong><span>Personas en equipos liderados</span></div>
+        <div><strong>Desde 2013</strong><span>Trayectoria en software</span></div>
+        <div><strong>Banca & pagos</strong><span>Experiencia sectorial</span></div>
       </section>
 
       <section className="profile section-shell" id="perfil">
         <div className="section-kicker"><span>01</span> Perfil profesional</div>
         <div className="profile-layout">
           <div>
-            <h2 className="section-title">La tecnología funciona mejor cuando <em>las personas y el contexto</em> también están conectados.</h2>
+            <h2 className="section-title">Experiencia técnica.<br /><em>Liderazgo con perspectiva.</em></h2>
           </div>
           <div className="profile-copy">
             <p>
@@ -194,7 +191,7 @@ export default function Home() {
       <section className="experience section-shell" id="experiencia">
         <div className="section-kicker"><span>02</span> Experiencia</div>
         <div className="section-heading-row">
-          <h2 className="section-title">Trayectoria construida en <em>sistemas que no pueden fallar.</em></h2>
+          <h2 className="section-title">Trayectoria profesional.</h2>
           <p>Desde el desarrollo de software hasta el liderazgo técnico, con foco sostenido en integración, continuidad y delivery.</p>
         </div>
 
@@ -231,10 +228,10 @@ export default function Home() {
       </section>
 
       <section className="stack section-shell" id="stack">
-        <div className="section-kicker"><span>03</span> Stack & capacidades</div>
+        <div className="section-kicker"><span>03</span> Tecnologías y formación</div>
         <div className="stack-layout">
           <div className="stack-intro">
-            <h2 className="section-title">Profundidad técnica para <em>tomar mejores decisiones.</em></h2>
+            <h2 className="section-title">Tecnologías &<br /><em>formación.</em></h2>
             <p>
               Herramientas y plataformas son el medio. El objetivo es diseñar soluciones mantenibles, integrarlas con criterio y operarlas con continuidad.
             </p>
@@ -243,6 +240,7 @@ export default function Home() {
               <strong>Ingeniero de Ejecución en Informática</strong>
               <p>Pontificia Universidad Católica de Valparaíso · 2014</p>
               <div><b>Scrum Master Certified</b><small>Marzo 2023</small></div>
+              <p className="languages">Español nativo · Inglés básico</p>
             </div>
           </div>
           <div className="stack-groups">
@@ -262,7 +260,7 @@ export default function Home() {
         <div className="recognition-index">04</div>
         <div>
           <span>Reconocimiento</span>
-          <h2>La curiosidad técnica también se construye fuera del guion.</h2>
+          <h2>Innovación aplicada a la educación.</h2>
         </div>
         <p>
           Tercer lugar en Expo Software PUCV por un proyecto de realidad aumentada orientado a educación básica. Formación complementaria en seguridad web, diseño de sistemas seguros, usabilidad, redes neuronales y desarrollo móvil.
@@ -270,18 +268,19 @@ export default function Home() {
       </section>
 
       <section className="contact" id="contacto">
-        <div className="contact-grid" aria-hidden="true" />
+        
         <div className="contact-copy">
           <div className="section-kicker"><span>05</span> Contacto</div>
-          <h2>¿Tienes un desafío técnico que necesita <em>claridad y ejecución?</em></h2>
+          <h2>Hablemos de tu<br /><em>próximo proyecto.</em></h2>
           <p>Conversemos sobre arquitectura, integración, delivery o liderazgo de equipos para servicios críticos.</p>
         </div>
         <div className="contact-actions">
           <a href="mailto:sergiofica@gmail.com" className="contact-email">sergiofica@gmail.com <span aria-hidden="true">↗</span></a>
           <div>
             <a href="https://www.linkedin.com/in/sergiofica" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
-            <a href="/sergio-fica-cv-2026.docx" download>Descargar CV <span aria-hidden="true">↓</span></a>
+            <a href="/sergio-fica-cv-2026.pdf" download>Descargar PDF <span aria-hidden="true">↓</span></a>
           </div>
+          <a className="contact-phone" href="tel:+56968615626">+56 9 6861 5626</a>
           <p>Curauma, Valparaíso · Modalidad híbrida en Santiago: 1 día presencial por semana</p>
         </div>
       </section>
