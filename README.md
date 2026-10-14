@@ -57,7 +57,9 @@ docker compose down
 
 ## Despliegue mediante Jenkins
 
-El `Jenkinsfile` replica el flujo utilizado por los demás sistemas:
+El trabajo usa **Pipeline script**, igual que `finanzas-personales-build`. Copia el contenido de `Jenkinsfile` en el campo Script de Jenkins y mantén activado **Use Groovy Sandbox**. El archivo en Git sirve como respaldo; cuando cambie, actualiza también el Script del trabajo.
+
+El pipeline:
 
 1. Limpia el workspace.
 2. Clona `git@github.com:7yrak/cvOnline.git`.

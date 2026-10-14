@@ -31,18 +31,11 @@ pipeline {
             }
         }
 
-        stage('Instalar dependencias y validar') {
+        stage('Compilar aplicación') {
             steps {
                 dir('cv-online') {
                     sh 'npm ci'
                     sh 'npm run lint'
-                }
-            }
-        }
-
-        stage('Compilar aplicación') {
-            steps {
-                dir('cv-online') {
                     sh 'npm run build'
                 }
             }
@@ -65,7 +58,7 @@ pipeline {
                     test -d dist-package/.next/static
                     test -d dist-package/public
 
-                    zip -r cv-online-build.zip dist-package
+                    zip -qr cv-online-build.zip dist-package
                     ls -lh cv-online-build.zip
                 '''
             }
@@ -96,12 +89,4 @@ pipeline {
         }
     }
 
-    post {
-        success {
-            echo 'CV Online compilado y desplegado correctamente.'
-        }
-        failure {
-            echo 'El pipeline de CV Online finalizó con errores.'
-        }
-    }
 }
