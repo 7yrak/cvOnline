@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">SF · Sergio Fica</title>
+  <rect width="64" height="64" rx="14" fill="#25575b"/>
+  <text x="10" y="43" fill="#f7f6f2" font-family="Georgia, 'Times New Roman', serif" font-size="33" font-weight="600" letter-spacing="-2">SF</text>
+  <circle cx="52" cy="43" r="3.8" fill="#a9b9a4"/>
+</svg>
